@@ -1,0 +1,25 @@
+{
+  "name": "504-delivery-backend",
+  "version": "1.0.0",
+  "description": "Backend de las aplicaciones de 504 Delivery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LPSoldier19/504-Delivery-Backend.git"
+  },
+  "author": "Rafael Bautista y Yuvini Flores",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LPSoldier19/504-Delivery-Backend/issues"
+  },
+  "homepage": "https://github.com/LPSoldier19/504-Delivery-Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3"
+  }
+}
