@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var servidor = 'localhost:27017';
-var db = '504Delivery';
+var db = 'deliveryApp';
 
 class Database{
     constructor(){

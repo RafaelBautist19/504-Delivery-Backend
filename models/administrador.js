@@ -9,4 +9,4 @@ var esquema = mongoose.Schema({
     password: String
 });
 
-module.exports = mongoose.model('administrador', esquema);
+module.exports = mongoose.model('administradores', esquema);

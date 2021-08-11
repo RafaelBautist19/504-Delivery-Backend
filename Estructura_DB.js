@@ -72,14 +72,14 @@ clientes([
     }
 ])
 
-db.administrador.insert(
-    {
+db.administradores.insert(
+    [{
         nombre: "Rafael",
         apellido: "Bautista",
         fechaNacimiento: "9/3/1998",
         correo:"rafael.bautista@gmail.com",
         genero:"Masculino",
         contraseña:"asd.456"
-    }
+    }]
 )//Ya se inserta el dato del administrador
 
