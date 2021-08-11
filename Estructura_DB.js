@@ -72,18 +72,14 @@ clientes([
     }
 ])
 
-administrador([
+db.administrador.insert(
     {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        correo:"",
-        genero:"",
-        contraseña:""
+        nombre: "Rafael",
+        apellido: "Bautista",
+        fechaNacimiento: "9/3/1998",
+        correo:"rafael.bautista@gmail.com",
+        genero:"Masculino",
+        contraseña:"asd.456"
     }
-])
-    // - Tipos de Usuarios: Motoristas, Clientes y Administrador
-    // - Cada usuario tiene un ID generado por mongo
-    // - Solo debe de existir un usuario del tipo Administrador
-    // - Solo los usuarios "Motoristas" y "Clientes" pueden ser vinculados a el arreglo de pedidos
+)//Ya se inserta el dato del administrador
 
