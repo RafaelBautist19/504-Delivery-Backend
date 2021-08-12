@@ -47,16 +47,16 @@ restaurantes([{
     "impuesto": 30
 }]);
 
-motoristas([
+db.motoristas.insert([
     {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        correo:"",
-        telefono:"",
-        genero:"",
-        password:"",
-        identidad:""
+        nombre: "Yuvini",
+        apellido: "Flores",
+        fechaNacimiento: "20/20/2000",
+        correo:"yuvini.flores@gmail.com",
+        telefono:"9999-9999",
+        genero:"Masculino",
+        password:"asd.456",
+        identidad:"0801-2000-25075"
     }
 ])
 

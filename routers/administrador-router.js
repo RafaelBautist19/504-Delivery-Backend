@@ -7,12 +7,13 @@ var jwt = require('jsonwebtoken');
 
 router.post('/', async function(req,res){
     const {correo, password} = req.body;
-    const admin = await administrador.findOne();
+    const admin = await administrador.findOne({correo});
     if (admin.correo !== correo) return res.status(401).send('Correo incorrecto');
     if (admin.password !== password) return res.status(401).send('Contraseña Incorrecta');
 
     const token = jwt.sign({_id:admin._id}, 'adminkey');
-    return res.status(200).json({token});
+    const adminID = admin._id;
+    return res.status(200).json({token, adminID});
 });
 
 module.exports = router;

@@ -12,7 +12,8 @@ router.post('/login', async function(req,res){
     if (usrCliente.password !== password) return res.status(401).send('Contraseña Incorrecta');
 
     const token = jwt.sign({_id:usrCliente._id}, 'clientekey');
-    return res.status(200).json({token});
+    const clientID = usrCliente._id;
+    return res.status(200).json({token, clientID});
 });
 
 module.exports = router;
