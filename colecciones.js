@@ -1,4 +1,4 @@
-use 504Delivery;
+use deliveryApp;
 
 db.createCollection('pedidos');
 db.createCollection('carrito');

@@ -55,20 +55,20 @@ motoristas([
         correo:"",
         telefono:"",
         genero:"",
-        contraseña:"",
+        password:"",
         identidad:""
     }
 ])
 
-clientes([
+db.clientes.insert([
     {
-        nombre: "",
-        apellido: "",
-        fechaNacimiento: "",
-        correo:"",
-        telefono:"",
-        genero:"",
-        contraseña:""
+        nombre: "Walter",
+        apellido: "Bautista",
+        fechaNacimiento: "11/12/2000",
+        correo:"walter.bautista@gmail.com",
+        telefono:"9999-9999",
+        genero:"Masculino",
+        password:"asd.456"
     }
 ])
 
@@ -79,7 +79,7 @@ db.administradores.insert(
         fechaNacimiento: "9/3/1998",
         correo:"rafael.bautista@gmail.com",
         genero:"Masculino",
-        contraseña:"asd.456"
+        password:"asd.456"
     }]
 )//Ya se inserta el dato del administrador
 

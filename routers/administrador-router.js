@@ -15,52 +15,6 @@ router.post('/', async function(req,res){
     return res.status(200).json({token});
 });
 
-router.get('/tasks', function(req,res){
-    res.json([
-        {
-            _id:1,
-            name: 'Task one',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-        {
-            _id:2,
-            name: 'Task two',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-        {
-            _id:3,
-            name: 'Task three',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-    ])
-});
-
-router.get('/private-tasks', verifyToken, function(req,res){
-    res.json([
-        {
-            _id:1,
-            name: 'Task one',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-        {
-            _id:2,
-            name: 'Task two',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-        {
-            _id:3,
-            name: 'Task three',
-            description: 'Lorem Ipsum',
-            date: '2021-08-11'
-        },
-    ])
-})
-
 module.exports = router;
 
 function verifyToken(req, res, next){
