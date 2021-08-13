@@ -56,7 +56,8 @@ db.motoristas.insert([
         telefono:"9999-9999",
         genero:"Masculino",
         password:"asd.456",
-        identidad:"0801-2000-25075"
+        identidad:"0801-2000-25075",
+        estado: "Aceptado"
     }
 ])
 

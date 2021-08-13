@@ -12,8 +12,30 @@ router.post('/login', async function(req,res){
     if (usrMotorista.password !== password) return res.status(401).send('Contraseña Incorrecta');
     const token = jwt.sign({_id:usrMotorista._id}, 'clientekey');
     const userID = usrMotorista._id;
-    return res.status(200).json({token, userID});
+    const userStatus = usrMotorista.estado;
+    return res.status(200).json({token, userID, userStatus});
     
+});
+
+router.post('/signup', function(req,res){
+    let m = new motorista({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        fechaNacimiento: req.body.fechaNacimiento,
+        correo:req.body.correo,
+        telefono:req.body.telefono,
+        genero:req.body.genero,
+        password:req.body.password,
+        identidad:req.body.identidad,
+        estado: req.body.estado
+    });
+    m.save().then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
 });
 
 module.exports = router;

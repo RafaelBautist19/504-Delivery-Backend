@@ -8,7 +8,8 @@ var esquema = mongoose.Schema({
     telefono:String,
     genero:String,
     password:String,
-    identidad:String
+    identidad:String,
+    estado: String
 });
 
 module.exports = mongoose.model('motoristas', esquema);
