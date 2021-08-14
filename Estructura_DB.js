@@ -33,9 +33,9 @@ carrito({
 })
 
 restaurantes([{
-    "nombreRestaurante": 'Pizza Hut',
-    "icono": "",
-    "menu":[
+    nombreRestaurante: 'Pizza Hut',
+    icono: "",
+    menu:[
         {
             "nombreProducto": "",
             "descripcion": "",
@@ -43,8 +43,8 @@ restaurantes([{
             "imagenProducto": ""
         }
     ],
-    "envio": 35,
-    "impuesto": 30
+    envio: 35,
+    impuesto: 30
 }]);
 
 db.motoristas.insert([

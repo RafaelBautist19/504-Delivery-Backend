@@ -17,6 +17,18 @@ router.post('/login', async function(req,res){
     
 });
 
+router.get('/solicitudes', function(req,res){
+    motorista.find({estado: "Pendiente"})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    })
+    .catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
 router.post('/signup', function(req,res){
     let m = new motorista({
         nombre: req.body.nombre,

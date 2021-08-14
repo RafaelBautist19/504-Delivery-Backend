@@ -16,6 +16,25 @@ router.post('/login', async function(req,res){
     return res.status(200).json({token, clientID});
 });
 
+router.post('/signup', function(req,res){
+    let m = new cliente({
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        fechaNacimiento: req.body.fechaNacimiento,
+        correo: req.body.correo,
+        telefono: req.body.telefono,
+        genero: req.body.genero,
+        password: req.body.password
+    });
+    m.save().then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
 module.exports = router;
 
 function verifyToken(req, res, next){
