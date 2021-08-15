@@ -5,6 +5,7 @@ var database = require('./modules/database');
 var administradorRouter = require('./routers/administrador-router');
 var clientesRouter = require('./routers/router-clientes');
 var motoristasRouter = require('./routers/router-motoristas');
+var restaurantesRouter = require('./routers/router-restaurantes');
 
 var app = express();
 
@@ -15,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/administrador', administradorRouter);
 app.use('/clientes', clientesRouter);
 app.use('/motoristas', motoristasRouter);
+app.use('/restaurantes', restaurantesRouter);
+
 
 app.listen(8888, ()=>{
     console.log('Servidor del backend levantado en 8888');
