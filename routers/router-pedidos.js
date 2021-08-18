@@ -73,6 +73,88 @@ router.get('/', function(req,res){
         res.send(error);
         res.end();
     })
+});
+
+router.get('/:idMotorista/cantidadPedidosAceptados',function(req,res){
+    pedido.find({"motorista.idMotorista": req.params.idMotorista, "estado":"En camino al Restaurante"},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
+router.put('/:idPedido/pedidoAsignado', function(req,res){
+    pedido.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idPedido)
+    },{
+        estado: "En camino al Restaurante",
+        motorista: req.body.motorista
+    }).then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
+router.put('/:idPedido/restaurante', function(req,res){
+    pedido.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idPedido)
+    },{
+        estado: "En el Restaurante"
+    }).then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
+router.put('/:idPedido/caminoEntrega', function(req,res){
+    pedido.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idPedido)
+    },{
+        estado: "En camino a su hogar"
+    }).then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
+router.put('/:idPedido/entregado', function(req,res){
+    pedido.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idPedido)
+    },{
+        estado: "Entregado"
+    }).then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
+router.put('/:idPedido/cancelado', function(req,res){
+    pedido.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idPedido)
+    },{
+        estado: "Cancelado"
+    }).then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
 })
 
 module.exports = router;
