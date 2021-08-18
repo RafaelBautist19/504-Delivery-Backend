@@ -1,7 +1,7 @@
 use deliveryApp;
 
 db.createCollection('pedidos');
-db.createCollection('carrito');
+db.createCollection('carritoProductos');
 db.createCollection('restaurantes');
 db.createCollection('motoristas');
 db.createCollection('clientes');

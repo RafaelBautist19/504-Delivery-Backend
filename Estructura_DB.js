@@ -21,7 +21,7 @@ pedidos([{
         lng: ""
     },
     envio: 30,
-    monto: precio + envio,
+    monto: producto.precio + envio,
     estado: ""
 }]);
 

@@ -29,6 +29,48 @@ router.get('/solicitudes', function(req,res){
     })
 });
 
+router.get('/', function(req,res){
+    motorista.find({estado: "Aceptado"})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    })
+    .catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
+router.put('/:idMotorista/aceptar',function(req,res){
+    motorista.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idMotorista)
+    },{
+        estado: "Aceptado"
+    })
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
+router.put('/:idMotorista/denegar',function(req,res){
+    motorista.updateOne({
+        _id: mongoose.Types.ObjectId(req.params.idMotorista)
+    },{
+        estado: "Rechazado"
+    })
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
 router.post('/signup', function(req,res){
     let m = new motorista({
         nombre: req.body.nombre,
