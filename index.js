@@ -6,6 +6,7 @@ var administradorRouter = require('./routers/administrador-router');
 var clientesRouter = require('./routers/router-clientes');
 var motoristasRouter = require('./routers/router-motoristas');
 var restaurantesRouter = require('./routers/router-restaurantes');
+var pedidosRouter = require('./routers/router-pedidos');
 
 var app = express();
 
@@ -17,6 +18,8 @@ app.use('/administrador', administradorRouter);
 app.use('/clientes', clientesRouter);
 app.use('/motoristas', motoristasRouter);
 app.use('/restaurantes', restaurantesRouter);
+app.use('/pedidos', pedidosRouter);
+
 
 
 app.listen(8888, ()=>{

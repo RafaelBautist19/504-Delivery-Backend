@@ -6,8 +6,8 @@ var esquema = mongoose.Schema({
         metodoPago: String,
         producto: Object,
         direccion: Object,
-        envio: number,
-        monto: number,
+        envio: Number,
+        monto: Number,
         estado: String
 });
 
