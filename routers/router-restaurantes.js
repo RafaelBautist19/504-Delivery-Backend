@@ -29,6 +29,19 @@ router.get('/:idRestaurante/menu', function(req,res){
     })
 });
 
+router.get('/:idRestaurante',function(req,res){
+    restaurante.findOne({
+        _id: req.params.idRestaurante
+    },{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
 router.get('/:idRestaurante/menu/:idProducto', function(req,res){
     restaurante.find({
         _id:req.params.idRestaurante,

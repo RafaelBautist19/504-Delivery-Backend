@@ -17,6 +17,18 @@ router.post('/login', async function(req,res){
     
 });
 
+router.get('/:idMotorista',function(req,res){
+    motorista.findOne({_id: req.params.idMotorista},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    })
+    .catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
 router.get('/solicitudes', function(req,res){
     motorista.find({estado: "Pendiente"})
     .then(result=>{
@@ -56,7 +68,8 @@ router.put('/:idMotorista/aceptar',function(req,res){
     })
 });
 
-router.put('/:idMotorista/denegar',function(req,res){
+
+router.put('/:idMotorista/rechazar',function(req,res){
     motorista.updateOne({
         _id: mongoose.Types.ObjectId(req.params.idMotorista)
     },{

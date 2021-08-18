@@ -35,6 +35,18 @@ router.post('/signup', function(req,res){
     })
 });
 
+router.get('/:idCliente',function(req,res){
+    cliente.findOne({_id: req.params.idCliente},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    })
+    .catch(error=>{
+        res.send(error);
+        res.end();
+    })
+})
+
 module.exports = router;
 
 function verifyToken(req, res, next){

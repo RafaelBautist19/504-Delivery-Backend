@@ -25,18 +25,6 @@ pedidos([{
     estado: ""
 }]);
 
-carrito({
-    producto:{
-        restaurante:"",
-        nombreProducto:"",
-        precio: 180
-    },
-    direccion:{
-        lat: "",
-        lng: ""
-    }
-})
-
 db.restaurantes.insert([{
     nombreRestaurante: 'Burger King',
     icono: "restaurantes/Logo-Burger-King.png",
