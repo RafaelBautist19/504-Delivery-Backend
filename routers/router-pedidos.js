@@ -49,7 +49,17 @@ router.get('/:idCliente', function(req,res){
         res.send(error);
         res.end();
     })
-    
+})
+
+router.get('/:idMotorista/pedidosMotorista', function(req,res){
+    pedido.find({"motorista.idMotorista": req.params.idMotorista},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
 })
 
 router.get('/:idPedido/informacion', function(req,res){
@@ -75,16 +85,6 @@ router.get('/', function(req,res){
     })
 });
 
-router.get('/:idMotorista/cantidadPedidosAceptados',function(req,res){
-    pedido.find({"motorista.idMotorista": req.params.idMotorista, "estado":"En camino al Restaurante"},{})
-    .then(result=>{
-        res.send(result);
-        res.end();
-    }).catch(error=>{
-        res.send(error);
-        res.end();
-    })
-});
 
 router.put('/:idPedido/pedidoAsignado', function(req,res){
     pedido.updateOne({
