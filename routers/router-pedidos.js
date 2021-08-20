@@ -74,16 +74,16 @@ router.get('/:idPedido/informacion', function(req,res){
     });
 });
 
-// router.get('/', function(req,res){
-//     pedido.find({},{})
-//     .then(result=>{
-//         res.send(result);
-//         res.end();
-//     }).catch(error=>{
-//         res.send(error);
-//         res.end();
-//     })
-// });
+router.get('/', function(req,res){
+    pedido.find({},{}).limit(10)
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
 
 
 router.put('/:idPedido/pedidoAsignado', function(req,res){
