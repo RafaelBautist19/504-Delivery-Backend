@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var restaurante = require('../models/restaurante');
 var mongoose = require('mongoose');
+var subirImagen = require('../middleware/images');
 
 router.get('/', function(req,res){
     restaurante.find({},{})
@@ -61,13 +62,14 @@ router.get('/:idRestaurante/menu/:idProducto', function(req,res){
     })
 });
 
-router.post('/nuevoRestaurante',function(req,res){
+router.post('/nuevoRestaurante', subirImagen.uploadRestauranteLogo.fields([{name:'icono', maxCount:1}]), function(req,res){
     let r = new restaurante({
         nombreRestaurante: req.body.nombreRestaurante,
-        icono: req.body.icono,
+        icono: `restaurantes/${req.files.icono[0].filename}`,
         menu: [],
         impuesto: req.body.impuesto
     });
+
 
     r.save().then(result=>{
         res.send(result);
@@ -78,7 +80,9 @@ router.post('/nuevoRestaurante',function(req,res){
     })
 });
 
-router.post('/:idRestaurante/nuevoProducto', function(req,res){
+router.post('/:idRestaurante/nuevoProducto', subirImagen.uploadProductos.fields([{name:'imagenProducto', maxCount:1}]), function(req,res){
+    
+
     restaurante.updateOne({
         _id: mongoose.Types.ObjectId(req.params.idRestaurante)
     },{
@@ -88,7 +92,7 @@ router.post('/:idRestaurante/nuevoProducto', function(req,res){
                 nombreProducto: req.body.nombreProducto,
                 descripcion: req.body.descripcion,
                 precio: req.body.precio,
-                imagenProducto: req.body.imagenProducto
+                imagenProducto: `productos/${req.files.imagenProducto[0].filename}`
             }
         }
     })
