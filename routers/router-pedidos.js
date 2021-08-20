@@ -74,16 +74,16 @@ router.get('/:idPedido/informacion', function(req,res){
     });
 });
 
-router.get('/', function(req,res){
-    pedido.find({},{})
-    .then(result=>{
-        res.send(result);
-        res.end();
-    }).catch(error=>{
-        res.send(error);
-        res.end();
-    })
-});
+// router.get('/', function(req,res){
+//     pedido.find({},{})
+//     .then(result=>{
+//         res.send(result);
+//         res.end();
+//     }).catch(error=>{
+//         res.send(error);
+//         res.end();
+//     })
+// });
 
 
 router.put('/:idPedido/pedidoAsignado', function(req,res){
@@ -156,5 +156,27 @@ router.put('/:idPedido/cancelado', function(req,res){
         res.end();
     })
 })
+
+router.get('/estado/entregados',function(req,res){
+    pedido.find({estado: "Entregado"},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
+
+router.get('/estado/cancelados',function(req,res){
+    pedido.find({estado: "Cancelado"},{})
+    .then(result=>{
+        res.send(result);
+        res.end();
+    }).catch(error=>{
+        res.send(error);
+        res.end();
+    })
+});
 
 module.exports = router;

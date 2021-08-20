@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 
 var esquema = mongoose.Schema({
-    nombre: String,
+    nombre:String,
     apellido: String,
     fechaNacimiento: String,
-    correo:String,
-    telefono:String,
-    genero:String,
-    password:String,
-    identidad:String,
+    correo: String,
+    telefono: String,
+    genero: String,
+    password: String,
+    identidad: String,
     estado: String
 });
 

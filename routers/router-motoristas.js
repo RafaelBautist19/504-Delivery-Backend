@@ -29,8 +29,8 @@ router.get('/:idMotorista',function(req,res){
     })
 })
 
-router.get('/solicitudes', function(req,res){
-    motorista.find({estado: "Pendiente"})
+router.get('/solicitud/pendiente', function(req,res){
+    motorista.find({estado:"Pendiente"},{})
     .then(result=>{
         res.send(result);
         res.end();
